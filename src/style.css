@@ -1,0 +1,286 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  word-wrap: break-word;
+}
+
+.wrapper {
+  max-width: 1000px;
+  height: 100vh;
+  border: 1px solid #899fc1;
+  margin: 0 auto;
+  font-size: 16px;
+}
+
+header {
+  height: 80px;
+  background-color: #4ac7c9;
+}
+
+main {
+  height: calc(100vh - 82px);
+  background-color: #e0fcfc;
+  overflow-y: auto;
+}
+
+header h1 {
+  margin-left: 20px;
+}
+
+header h1 span {
+  color: white;
+  text-shadow: 0px 0px 3px black;
+}
+
+nav {
+  text-align: center;
+}
+
+nav a {
+  text-decoration: none;
+  color: white;
+  text-shadow: 0px 0px 2px black;
+  font-size: 1.4em;
+  transition: color 700ms;
+}
+
+nav a:hover {
+  color: black;
+}
+
+.actions {
+  display: flex;
+}
+
+.actions button {
+  flex: 1;
+  height: 30px;
+  cursor: pointer;
+  background-color: #63bf95;
+  border: 1px solid #076056;
+  font-weight: bold;
+  transition: all 700ms;
+  color: white;
+  text-shadow: 0px 0px 1px black;
+}
+
+.actions button:hover {
+  background-color: #9ff4cf;
+  text-shadow: 0px 0px 3px black;
+}
+
+.page-label {
+  background-color: #21bcad;
+  text-align: center;
+  padding: 4px;
+  text-shadow: 0px 0px 3px white;
+  font-size: 0.8em;
+}
+
+.form {
+  text-align: center;
+  font-size: 1.4em;
+}
+.form label {
+  display: block;
+  margin: 24px;
+}
+
+.form input,
+.form select,
+.form button {
+  display: block;
+  margin: 0 auto;
+  margin-top: 8px;
+}
+
+.form input {
+  width: 250px;
+}
+
+.form select {
+  width: 150px;
+}
+
+.form button {
+  padding: 10px 22px;
+  cursor: pointer;
+  background-color: #1b5f90;
+  border: none;
+  color: white;
+  font-size: 0.8em;
+  text-shadow: 0px 0px 2px black;
+  transition: background-color 700ms;
+}
+
+.form button:hover {
+  background-color: #1b9f8b;
+}
+
+.list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+  padding: 10px;
+}
+
+.item {
+  position: relative;
+  border: 1px solid #d6e5fc;
+  height: 100px;
+  background-color: #87e1ff;
+  cursor: pointer;
+  transition: background-color 700ms;
+}
+
+.item:hover {
+  background-color: #5bb9d8;
+}
+
+.item.selected {
+  background-color: #0a4f66;
+  color: white;
+  text-shadow: 0px 0px 2px black;
+}
+
+.item span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.2em;
+}
+
+.list.categories {
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.list.categories .item {
+  height: 60px;
+  background-color: #99d4e8;
+}
+
+.list.categories .item:hover {
+  background-color: #abcbd6;
+}
+
+.list.categories .item.selected {
+  background-color: #06a1d6;
+  color: white;
+  text-shadow: 0px 0px 2px black;
+}
+
+.view-category {
+  text-align: center;
+  padding-top: 50px;
+  font-size: 1.4em;
+}
+
+.filtering {
+  padding: 10px 0px;
+  text-align: center;
+  font-size: 1.2em;
+}
+
+.filtering select {
+  margin: 0px 8px;
+}
+
+.view-location {
+  text-align: center;
+}
+
+.view-location .view-options {
+  margin: 60px 0px;
+}
+
+.view-location .view-options button {
+  margin: 36px;
+  width: 160px;
+  height: 100px;
+  cursor: pointer;
+  border: none;
+  font-size: 1.2em;
+  color: white;
+  text-shadow: 0px 0px 2px black;
+  background-color: #1f49bb;
+  transition: background-color 700ms;
+}
+
+.view-location .view-options button:hover {
+  background-color: #092884;
+}
+
+.location-definition > p {
+  margin: 20px 12px;
+  cursor: pointer;
+  word-break: break-all;
+}
+
+.location-definition .definition-text > p {
+  font-size: 1.4em;
+  margin: 16px 8px;
+}
+
+.location-map {
+  position: relative;
+  width: 100%;
+  height: 75vh;
+  text-align: center;
+}
+
+.location-map > p {
+  margin: 20px 12px;
+  cursor: pointer;
+}
+
+.add-wrapper,
+.edit-wrapper {
+  position: relative;
+}
+
+.location-map.select-location {
+  position: absolute;
+  z-index: 1;
+  padding-top: 12px;
+  background-color: #e0fcfc;
+}
+
+@media (max-width: 800px) {
+  .list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .list.categories {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .list.categories {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .filtering label {
+    display: block;
+  }
+}
+
+@media (max-width: 400px) {
+  .list {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .list.categories {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
